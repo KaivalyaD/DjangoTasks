@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>View Data</title>
+    </head>
+    <body>
+        {% if not_filled %}
+            <form method="post">
+                {% csrf_token %}
+                <label for="email">Enter Email: </label>
+                <input type="text" name="email" id="email"><br><br>
+                <button type="submit">Submit Email</button>
+            </form>
+        {% endif %}
+
+        {% if success == 1 %}
+            <h1>User Found!</h1>
+            <label>Name: {{ match.FirstName }} {{match.LastName}}</label><br>
+            <label>Phone: {{ match.Phone }}</label><br>
+            <label>Email: {{ match.Email }}</label><br>
+            <label>Gender: {{ match.Gender }}</label><br><br>
+
+            <a href="{% url 'view' %}">Enter email again</a><br>
+            <a href="{% url 'index' %}">Register another user</a>
+        {% elif success == 0 %}
+            <h1>That Email is Not Registered!</h1>
+
+            <a href="{% url 'view' %}">Enter email again</a><br>
+            <a href="{% url 'index' %}">Register another user</a>
+        {% endif %}
+    </body>
+</html>

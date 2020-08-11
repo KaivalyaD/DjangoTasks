@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" id="fname"><br><br>
+
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" id="lname"><br><br>
+
+            <label for="phone">Phone No.: </label>
+            <input type="text" name="phone" id="phone"><br><br>
+
+            <label for="email">Email Id.: </label>
+            <input type="text" name="email" id="email"><br><br>
+
+            <label>Select Your Gender</label><br>
+            <label for="male">Male: </label>
+            <input type="radio" name="gender" value="Male" id="male"><br>
+            <label for="female">Female: </label>
+            <input type="radio" name="gender" value="Female" id="female"><br>
+            <label for="none">None: </label>
+            <input type="radio" name="gender" value="None" id="none"><br><br>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <br><br>
+        <a href="view">View Other Users' Data</a>
+    </body>
+</html>
