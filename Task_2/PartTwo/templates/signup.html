@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+
+    {% if error == 'unmatched_pass' %}
+        <h2>Passwords Do Not Match! Please Re-enter!</h2>
+    {% elif error == 'user_exists' %}
+        <h2>That Username already exists! Please Choose another one!</h2>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="user">Username: </label>
+        <input type="text" name="user" id="user"><br><br>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email"><br><br>
+
+        <label for="fname">First Name: </label>
+        <input type="text" name="fname" id="fname"><br><br>
+
+        <label for="lname">Last Name: </label>
+        <input type="text" name="lname" id="lname"><br><br>
+
+        <label for="phone">Phone Number: </label>
+        <input type="text" name="phone" id="phone"><br><br>
+
+        <label for="pass">Password: </label>
+        <input type="password" name="pass" id="pass"><br><br>
+
+        <label for="cpass">Confirm Password: </label>
+        <input type="password" name="cpass" id="cpass"><br><br>
+
+        <button type="submit">Submit</button>
+        <br>
+    </form>
+
+    <a href="Login">Already signed up? Click here to Login!</a>
+</body>
+</html>
