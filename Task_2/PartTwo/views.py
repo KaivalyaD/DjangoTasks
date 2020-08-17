@@ -67,7 +67,8 @@ def user_login_view(request):
 
 
 def user_logout_view(request):
-    global logged_out_successfully
-    logout(request)
-    logged_out_successfully = 'True'  # Setting the is_last_action_logout state to true
-    return redirect('login')
+    if request.method == 'POST':
+        global logged_out_successfully
+        logout(request)
+        logged_out_successfully = 'True'  # Setting the is_last_action_logout state to true
+        return redirect('login')
